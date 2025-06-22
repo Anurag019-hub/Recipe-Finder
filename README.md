@@ -20,7 +20,6 @@ A modern web application that allows users to **search for recipes** based on **
 |------------|-------------------|
 | Frontend   | React             |
 | Animations | GSAP (GreenSock)  |
-| Backend    | Node.js + Express |
 | API Source | [Spoonacular API](https://spoonacular.com/food-api) *(or Edamam/TheMealDB)* |
 | Styling    | Tailwind CSS 
 
