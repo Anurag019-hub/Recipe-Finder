@@ -14,7 +14,7 @@ export default function IngredientDetails() {
   useEffect(() => {
     (async function fetchRecipeDetails() {
       try {
-        const res = await axios.get(`http://localhost:3000/created/ingredents/${id}`);
+        const res = await axios.get(`/created/ingredents/${id}`);
         const data = res.data;
 
         setIngredients(data.extendedIngredients);

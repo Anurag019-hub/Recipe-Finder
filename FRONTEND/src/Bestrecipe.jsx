@@ -10,7 +10,7 @@ export default function Bestrecipe() {
         async function getData() {
 
             try {
-                const res = await axios.post("http://localhost:3000/best");
+                const res = await axios.post("/best");
                 setAns(res.data.results);
             } catch (err) {
                 console.error("Error:", err);
