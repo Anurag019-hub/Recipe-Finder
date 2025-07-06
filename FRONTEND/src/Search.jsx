@@ -25,7 +25,7 @@ useEffect(()=>{
     console.log(q);
     setRecipe(q);
     try {
-      const res = await axios.post("http://localhost:3000/create", { recipe,sort });
+      const res = await axios.post("/create", { recipe,sort });
       setAns(res.data.results);
     } catch (err) {
       console.error("Error:", err);

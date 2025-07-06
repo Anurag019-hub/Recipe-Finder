@@ -6,7 +6,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-
+const port = process.env.PORT||3000;
+const apiKey = process.env.API_KEY;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,7 +21,7 @@ app.post("/create", async (req, res) => {
       `https://api.spoonacular.com/recipes/complexSearch`,
       {
         params: {
-          apiKey: process.env.API_KEY,
+          apiKey,
           query: recipe,
           number: 12,
           sort
@@ -42,7 +43,7 @@ app.post("/best", async (req, res) => {
       `https://api.spoonacular.com/recipes/complexSearch`,
       {
         params: {
-          apiKey: process.env.API_KEY,
+          apiKey,
           number: 12,
           sort: "popularity",  // valid here
           addRecipeInformation: true, // to get full image/title
@@ -65,7 +66,7 @@ app.get("/created/ingredents/:id", async (req, res) => {
   try {
     const response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/information`, {
       params: {
-        apiKey: process.env.API_KEY
+        apiKey,
       }
     });
 
@@ -76,6 +77,6 @@ app.get("/created/ingredents/:id", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server running on http://localhost:3000");
 });
