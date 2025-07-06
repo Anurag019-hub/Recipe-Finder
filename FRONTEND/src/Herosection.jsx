@@ -40,7 +40,7 @@ function Herosection() {
   return (
     <>
     <CircleFollower/>
-      <div className=" relative h-[100dvh] w-[100dvw] bg-[url(./asset/1.jpg)] flex overflow-hidden not-lg:flex-col-reverse ">
+      <div className=" relative h-[100dvh] w-[100dvw] bg-[url(./asset/1.jpg)] flex overflow-hidden not-lg:flex-col-reverse">
         <div className="w-[50dvw] h-[100%] flex flex-col justify-center items-center not-lg:w-[100dvw]">
 
           <img src={lightlogo} className="w-[40%] not-lg:w-[80%] not-lg:mt-5 self-center not-lg:z-15" ></img>

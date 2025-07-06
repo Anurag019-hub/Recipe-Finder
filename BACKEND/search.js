@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.post("/create", async (req, res) => {
   const recipe = req.body.recipe;
+  const sort = req.body.sort
 
   try {
     const response = await axios.get(
@@ -21,7 +22,8 @@ app.post("/create", async (req, res) => {
         params: {
           apiKey: process.env.API_KEY,
           query: recipe,
-          number: 12
+          number: 12,
+          sort
         },
       }
     );

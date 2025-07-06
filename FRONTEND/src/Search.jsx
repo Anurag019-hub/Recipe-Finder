@@ -8,23 +8,24 @@ import { useLocation } from "react-router-dom";
 
 export default function Search() {
   const [recipe, setRecipe] = useState("");
+  const [sort,setSort] = useState("random");
   const [ans, setAns] = useState([]);
-  const [liked, setliked] = useState(false);
 const location = useLocation();
 const searchParams = new URLSearchParams(location.search);
     const q = searchParams.get("query");
+    const k = searchParams.get("sort")
 
 
 useEffect(()=>{
   getData();
-},[q])
+},[q,k])
 
 
   async function getData() {
     console.log(q);
     setRecipe(q);
     try {
-      const res = await axios.post("http://localhost:3000/create", { recipe });
+      const res = await axios.post("http://localhost:3000/create", { recipe,sort });
       setAns(res.data.results);
     } catch (err) {
       console.error("Error:", err);
