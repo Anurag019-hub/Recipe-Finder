@@ -69,23 +69,23 @@ const Navbar = () => {
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 z-10 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
-                <button
-                  onClick={() => handleSort("nutrition")}
+                 <button
+                  onClick={() => handleSort("popularity")}
                   className="w-full text-left block px-4 py-2 text-sm hover:bg-gray-100"
                 >
-                  By Nutrition
+                  By Popularity
                 </button>
                 <button
-                  onClick={() => handleSort("ingredients")}
+                  onClick={() => handleSort("healthiness")}
                   className="w-full text-left block px-4 py-2 text-sm hover:bg-gray-100"
                 >
-                  By Ingredients
+                  By Healthiness
                 </button>
                 <button
-                  onClick={() => handleSort("cuisine")}
+                  onClick={() => handleSort("price")}
                   className="w-full text-left block px-4 py-2 text-sm hover:bg-gray-100"
                 >
-                  By Cuisine
+                  By Price
                 </button>
               </div>
             )}

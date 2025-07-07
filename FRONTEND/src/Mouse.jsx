@@ -31,7 +31,7 @@ export default function CircleFollower() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className=" not-lg:hidden relative overflow-hidden">
       <div
         ref={circleRef}
         className="fixed top-0 left-0 w-8 h-8  bg-red-500 rounded-full pointer-events-none z-50"

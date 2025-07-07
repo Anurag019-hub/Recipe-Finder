@@ -1,20 +1,19 @@
 import { useState, useRef } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ReactLenis, useLenis } from "lenis/react";
-import { useNavigate } from "react-router-dom";
+
 import Navbar from "./Navbar.jsx";
 import Herosection from "./herosection.jsx";
 import Search from "./Search.jsx";
-import Ingredent from "./ingredents.jsx";
+import IngredientDetails from "./Ingredents.jsx";
 import Bestrecipe from "./Bestrecipe.jsx";
 
 function App() {
   const navigate = useNavigate();
   const navigated = useRef(false);
 
-  useLenis((lenis) => {
+  useLenis(() => {});
 
-  });
   return (
     <>
       <ReactLenis root />
@@ -22,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Herosection />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/created/ingredents/:id" element={<Ingredent />} />
+        <Route path="/recipe/:id" element={<IngredientDetails />} />
         <Route path="/bestrecipe" element={<Bestrecipe />} />
       </Routes>
     </>

@@ -6,9 +6,10 @@ export default defineConfig({
   server:{
     proxy:{
       "/create" : "http://localhost:3000",
-      "/best" : "http://localhost:3000",
-      "/created" : "http://localhost:3000"
-    }
+      "/best" : "http://localhost:3000"
+      // "/created" : "http://localhost:3000"
+    },
+     historyApiFallback: true, // Add this line for dev
   },
   plugins: [tailwindcss(),react()],
 })

@@ -64,12 +64,57 @@ app.get("/created/ingredents/:id", async (req, res) => {
   const recipeId = req.params.id;
 
   try {
-    const response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/information`, {
+    let response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/information`, {
       params: {
         apiKey,
       }
     });
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch recipe information" });
+  }
+});
+app.get("/similar/ingredents/:id", async (req, res) => {
+  const recipeId = req.params.id;
 
+  try {
+    let response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/similar`, {
+      params: {
+        apiKey,
+        number:3
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch recipe information" });
+  }
+});
+app.get("/summery/:id", async (req, res) => {
+  const recipeId = req.params.id;
+
+  try {
+    let response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/summary`, {
+      params: {
+        apiKey,
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch recipe information" });
+  }
+});
+app.get("/taste/:id", async (req, res) => {
+  const recipeId = req.params.id;
+
+  try {
+    let response = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/tasteWidget.json`, {
+      params: {
+        apiKey,
+      }
+    });
     res.json(response.data);
   } catch (error) {
     console.error("Error:", error.message);
